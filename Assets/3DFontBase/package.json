@@ -1,0 +1,15 @@
+{
+    "name": "io.github.sayunana.3dfontbase",
+    "displayName": "3DFontBase",
+    "version": "0.0.1",
+    "unity": "2022.3",
+    "description": "",
+    "author": {
+        "name": "sayunana",
+        "url": "https://github.com/sayunana/3DFontBase"
+    },
+
+    "keywords": [],
+    "dependencies": {
+    }
+}
