@@ -1,9 +1,7 @@
 {
     "name": "3DFontBase",
     "rootNamespace": "",
-    "references": [
-        "GUID:1874d30fcfa4a344b94379fd3f858bbd"
-    ],
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
