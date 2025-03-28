@@ -13,9 +13,10 @@ namespace ThreeDFont
         [Header("--------------------------------")] [Header("Fontの読み込み情報")]
         public string Exported3DFontBaseVersion;
 
-        [Header("--------------------------------")] 
-        [Header("Fontの名前")]public string FontName = String.Empty;
-        [Header("Font作成者の名前")]public string FontAuthorName;
+        [Header("--------------------------------")] [Header("Fontの名前")]
+        public string FontName = String.Empty;
+
+        [Header("Font作成者の名前")] public string FontAuthorName;
 
         [Header("Fontのバージョン")] public string FontVersion;
         [Header("Fontの一意なハッシュ")] public string FontHash;
@@ -44,10 +45,8 @@ namespace ThreeDFont
             }
         }
 
-        public static void Save(FontData fontData, string path)
+        public static string GetJson(FontData fontData)
         {
-            if (String.IsNullOrEmpty(path)) return;
-
             // Fontのハッシュを作成
             using (SHA256 sha256 = SHA256.Create())
             {
@@ -57,10 +56,32 @@ namespace ThreeDFont
                 {
                     builder.Append(bytes[i].ToString("x2"));
                 }
+
                 fontData.FontHash = builder.ToString();
             }
-                 
-            var json = JsonUtility.ToJson(fontData, false);
+
+            return JsonUtility.ToJson(fontData, false);
+        }
+
+        public static void Save(FontData fontData, string path)
+        {
+            if (String.IsNullOrEmpty(path)) return;
+
+            try
+            {
+                File.WriteAllText(path, GetJson(fontData));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+        public static void Save(string json , string path)
+        {
+            if (String.IsNullOrEmpty(path)) return;
+
             try
             {
                 File.WriteAllText(path, json);
