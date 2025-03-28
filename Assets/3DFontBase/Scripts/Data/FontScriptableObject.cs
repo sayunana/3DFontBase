@@ -7,7 +7,7 @@ using UnityEngine;
 namespace ThreeDFont
 {
     [CreateAssetMenu(fileName = "Font", menuName = "Font")]
-    public class FontScriptableObject : ScriptableObject
+    public partial class FontScriptableObject : ScriptableObject
     {
         public List<CharacterData> CharacterData;
 

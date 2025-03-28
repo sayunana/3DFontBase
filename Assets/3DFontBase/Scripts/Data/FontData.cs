@@ -8,7 +8,7 @@ using UnityEngine;
 namespace ThreeDFont
 {
     [Serializable]
-    public class FontData
+    public partial class FontData
     {
         [Header("--------------------------------")] [Header("Fontの読み込み情報")]
         public string Exported3DFontBaseVersion;

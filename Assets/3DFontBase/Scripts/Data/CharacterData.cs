@@ -5,7 +5,7 @@ using UnityEngine;
 namespace ThreeDFont
 {
     [System.Serializable]
-    public class CharacterData
+    public partial class CharacterData
     {
         public char Character;
 
